@@ -1,0 +1,462 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64e-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MobigeoIosSdk
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CoreBluetooth
+import Foundation
+@_exported import MobigeoIosSdk
+import Swift
+import UIKit
+import WebKit.WKWebView
+import WebKit
+import ZIPFoundation
+import _Concurrency
+import _StringProcessing
+@_hasMissingDesignatedInitializers @objc(MobigeoMapPOI) open class MobigeoMapPOI : ObjectiveC.NSObject {
+  open func addEventDelegate(_ mapPOIEventDelegate: MobigeoIosSdk.MapPOIEventProtocol)
+  open func removeEventDelegate(_ mapPOIEventDelegate: MobigeoIosSdk.MapPOIEventProtocol)
+  open func add(POIs: Swift.String, callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func remove(POIs: Swift.String, callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func removeAll(clear: Swift.Bool, callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func show(_ POIs: [MobigeoIosSdk.POI], callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func show(POIs: Swift.String, callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func hide(_ POIs: [MobigeoIosSdk.POI], callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func hide(POIs: Swift.String, callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func clear()
+  open func aroundMe(_ parameters: [Swift.String : Swift.String], callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  open func aroundMe(parameters: Swift.String, callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  open func getAvailableStates(_ callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  open func setState(_ pois: [MobigeoIosSdk.POI], callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  open func setState(pois: Swift.String, callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  open func getAll(_ type: Swift.String, callback: @escaping ([Swift.AnyObject?]?) -> Swift.Void)
+  open func getCategoryIds(_ type: Swift.String, callback: @escaping ([Swift.AnyObject?]?) -> Swift.Void)
+  open func showUserRecordedPosition(_ callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func hideUserRecordedPosition(_ callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func getTypes(_ callback: @escaping ([Swift.String : Swift.String]?) -> Swift.Void)
+  open func getDisablePopups(_ callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func setDisablePopups(_ disablePopups: Swift.Bool, callback: @escaping (Swift.Bool) -> Swift.Void)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(MobigeoFavorite) open class MobigeoFavorite : ObjectiveC.NSObject {
+  open func addEventDelegate(_ favoriteEventDelegate: MobigeoIosSdk.FavoriteEventProtocol)
+  open func removeEventDelegate(_ favoriteEventDelegate: MobigeoIosSdk.FavoriteEventProtocol)
+  open func create(_ data: [Swift.String : Swift.AnyObject]?, callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  open func create(_ data: Swift.String, callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  open func show(_ favoriteId: Swift.String, callback: @escaping ([Swift.AnyObject?]?) -> Swift.Void)
+  open func remove(_ favoriteId: Swift.String, callback: @escaping ([Swift.AnyObject?]?) -> Swift.Void)
+  open func getAll(_ callback: @escaping ([Swift.AnyObject?]?) -> Swift.Void)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(MobigeoMapIcon) open class MobigeoMapIcon : ObjectiveC.NSObject {
+  open func addEventDelegate(_ mapIconEventDelegate: MobigeoIosSdk.MapIconEventProtocol)
+  open func removeEventDelegate(_ mapIconEventDelegate: MobigeoIosSdk.MapIconEventProtocol)
+  open func add(Icons: Swift.String, callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func remove(Icons: Swift.String, callback: @escaping (Swift.Bool) -> Swift.Void)
+  @objc deinit
+}
+public enum SerializationError : Swift.Error {
+  case invalidObject
+  case notSupported
+  public static func == (a: MobigeoIosSdk.SerializationError, b: MobigeoIosSdk.SerializationError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol HttpResponseBodyWriter {
+  func write(_ data: [Swift.UInt8])
+  func write(_ data: Swift.ArraySlice<Swift.UInt8>)
+}
+public enum HttpResponseBody {
+  case json(Swift.AnyObject)
+  case html(Swift.String)
+  case text(Swift.String)
+  case custom(Any, (Any) throws -> Swift.String)
+}
+public enum HttpResponse {
+  case switchProtocols([Swift.String : Swift.String], (MobigeoIosSdk.Socket) -> Swift.Void)
+  case ok(MobigeoIosSdk.HttpResponseBody), created, accepted
+  case movedPermanently(Swift.String)
+  case badRequest(MobigeoIosSdk.HttpResponseBody?), unauthorized, forbidden, notFound
+  case internalServerError
+  case raw(Swift.Int, Swift.String, [Swift.String : Swift.String]?, ((MobigeoIosSdk.HttpResponseBodyWriter) -> Swift.Void)?)
+}
+@_hasMissingDesignatedInitializers open class HttpHandlers {
+  @objc deinit
+}
+extension Swift.Encodable {
+  public func toJSONData() -> Foundation.Data?
+  public func toJSONString() -> Swift.String?
+  public func toJSON() -> [Swift.String : Any]
+}
+extension Swift.Decodable {
+  public static func map(JSONString: Swift.String) -> Self?
+  public static func map(JSONObject: Any) -> Self?
+}
+extension MobigeoIosSdk.HttpHandlers {
+  public class func websocket(text: ((MobigeoIosSdk.HttpHandlers.WebSocketSession, Swift.String) -> Swift.Void)?, _ binary: ((MobigeoIosSdk.HttpHandlers.WebSocketSession, [Swift.UInt8]) -> Swift.Void)?) -> ((MobigeoIosSdk.HttpRequest) -> MobigeoIosSdk.HttpResponse)
+  public class WebSocketSession {
+    public enum Error : Swift.Error {
+      case UnknownOpCode(Swift.String), UnMaskedFrame
+    }
+    public enum OpCode {
+      case Continue, Close, Ping, Pong, Text, Binary
+      public static func == (a: MobigeoIosSdk.HttpHandlers.WebSocketSession.OpCode, b: MobigeoIosSdk.HttpHandlers.WebSocketSession.OpCode) -> Swift.Bool
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+    }
+    @_hasMissingDesignatedInitializers public class Frame {
+      public var opcode: MobigeoIosSdk.HttpHandlers.WebSocketSession.OpCode
+      public var fin: Swift.Bool
+      public var payload: [Swift.UInt8]
+      @objc deinit
+    }
+    public init(_ socket: MobigeoIosSdk.Socket)
+    public func writeText(text: Swift.String)
+    public func writeBinary(binary: [Swift.UInt8])
+    public func writeBinary(binary: Swift.ArraySlice<Swift.UInt8>)
+    public func readFrame() throws -> MobigeoIosSdk.HttpHandlers.WebSocketSession.Frame
+    @objc deinit
+  }
+}
+public enum FileError : Swift.Error {
+  case openFailed(Swift.String)
+  case writeFailed(Swift.String)
+  case readFailed(Swift.String)
+  case seekFailed(Swift.String)
+  case getCurrentWorkingDirectoryFailed(Swift.String)
+}
+open class File {
+  public static func openNewForWriting(_ path: Swift.String) throws -> MobigeoIosSdk.File
+  public static func openForReading(_ path: Swift.String) throws -> MobigeoIosSdk.File
+  public static func openForWritingAndReading(_ path: Swift.String) throws -> MobigeoIosSdk.File
+  public static func openFileForMode(_ path: Swift.String, _ mode: Swift.String) throws -> MobigeoIosSdk.File
+  public static func currentWorkingDirectory() throws -> Swift.String
+  public init(_ pointer: Swift.UnsafeMutablePointer<Darwin.FILE>)
+  open func close()
+  open func read(_ data: inout [Swift.UInt8]) throws -> Swift.Int
+  open func write(_ data: [Swift.UInt8]) throws
+  open func seek(_ offset: Swift.Int) throws
+  @objc deinit
+}
+extension MobigeoIosSdk.File {
+  public static func withNewFileOpenedForWriting<Result>(_ path: Swift.String, _ f: (MobigeoIosSdk.File) throws -> Result) throws -> Result
+  public static func withFileOpenedForReading<Result>(_ path: Swift.String, _ f: (MobigeoIosSdk.File) throws -> Result) throws -> Result
+  public static func withFileOpenedForWritingAndReading<Result>(_ path: Swift.String, _ f: (MobigeoIosSdk.File) throws -> Result) throws -> Result
+  public static func withFileOpenedForMode<Result>(_ path: Swift.String, mode: Swift.String, _ f: (MobigeoIosSdk.File) throws -> Result) throws -> Result
+}
+@_hasMissingDesignatedInitializers open class HttpRouter {
+  open func routes() -> [Swift.String]
+  open func register(_ method: Swift.String?, path: Swift.String, handler: ((MobigeoIosSdk.HttpRequest) -> MobigeoIosSdk.HttpResponse)?)
+  open func route(_ method: Swift.String?, path: Swift.String) -> ([Swift.String : Swift.String], (MobigeoIosSdk.HttpRequest) -> MobigeoIosSdk.HttpResponse)?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(MobigeoMap) open class MobigeoMap : ObjectiveC.NSObject {
+  public static let FLAG_ENABLE_ROTATION: Swift.String
+  public static let FLAG_SHOW_HOME_BUTTON: Swift.String
+  public static let FLAG_SHOW_BACK_BUTTON: Swift.String
+  public static let FLAG_SHOW_CLEAR_BUTTON: Swift.String
+  public static let FLAG_SHOW_ZOOM_BUTTON: Swift.String
+  public static let FLAG_SHOW_ROUTE_BUTTON: Swift.String
+  public static let FLAG_SHOW_GEOGROUP_BUTTON: Swift.String
+  public static let FLAG_SHOW_MAP_TITLE: Swift.String
+  public static let FLAG_SHOW_THUMBNAIL: Swift.String
+  public static let COLOR_PIN_BUTTONS_BACKGROUND: Swift.String
+  public static let COLOR_TITLE_BACKGROUND: Swift.String
+  public static let COLOR_ELEVATOR_CURRENT_BACKGROUND: Swift.String
+  public static let COLOR_ELEVATOR_WITH_POI_BACKGROUND: Swift.String
+  public static let COLOR_ELEVATOR_WITH_POSITION_BACKGROUND: Swift.String
+  public static let COLOR_ITINERARY_LEGEND_BACKGROUND: Swift.String
+  public static let COLOR_ITINERARY_LEGEND_BORDER: Swift.String
+  public static let FLAG_DISPLAY_ONBOARDING_NTIMES: Swift.String
+  public static let COLOR_BACKGROUND: Swift.String
+  public static let BUTTONS_SIZE: Swift.String
+  open var poi: MobigeoIosSdk.MobigeoMapPOI {
+    get
+  }
+  open var icon: MobigeoIosSdk.MobigeoMapIcon {
+    get
+  }
+  open var route: MobigeoIosSdk.MobigeoMapRoute {
+    get
+  }
+  open func addEventDelegate(_ mapEventDelegate: MobigeoIosSdk.MapEventProtocol)
+  open func removeEventDelegate(_ mapEventDelegate: MobigeoIosSdk.MapEventProtocol)
+  open func create(_ selector: Swift.String, flagOptions: [Swift.String : Swift.String]?, colorOptions: [Swift.String : Swift.String]?, callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  open func zoomOnZone(_ zoneId: Swift.Int, floor: Swift.Int, callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func focusOnUser()
+  open func focusOnUser(_ jsCallback: Swift.String?, callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  open func resize(_ callback: @escaping (Swift.Bool) -> Swift.Void)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class HttpServer : MobigeoIosSdk.HttpServerIO {
+  public static let VERSION: Swift.String
+  public init()
+  open var DELETE: MobigeoIosSdk.HttpServer.MethodRoute, UPDATE: MobigeoIosSdk.HttpServer.MethodRoute, HEAD: MobigeoIosSdk.HttpServer.MethodRoute, POST: MobigeoIosSdk.HttpServer.MethodRoute, GET: MobigeoIosSdk.HttpServer.MethodRoute, PUT: MobigeoIosSdk.HttpServer.MethodRoute
+  open var delete: MobigeoIosSdk.HttpServer.MethodRoute, update: MobigeoIosSdk.HttpServer.MethodRoute, head: MobigeoIosSdk.HttpServer.MethodRoute, post: MobigeoIosSdk.HttpServer.MethodRoute, get: MobigeoIosSdk.HttpServer.MethodRoute, put: MobigeoIosSdk.HttpServer.MethodRoute
+  open subscript(path: Swift.String) -> ((MobigeoIosSdk.HttpRequest) -> MobigeoIosSdk.HttpResponse)? {
+    get
+    set
+  }
+  open var routes: [Swift.String] {
+    get
+  }
+  open var notFoundHandler: ((MobigeoIosSdk.HttpRequest) -> MobigeoIosSdk.HttpResponse)?
+  override open func dispatch(_ method: Swift.String, path: Swift.String) -> ([Swift.String : Swift.String], (MobigeoIosSdk.HttpRequest) -> MobigeoIosSdk.HttpResponse)
+  public struct MethodRoute {
+    public let method: Swift.String
+    public let router: MobigeoIosSdk.HttpRouter
+    public subscript(path: Swift.String) -> ((MobigeoIosSdk.HttpRequest) -> MobigeoIosSdk.HttpResponse)? {
+      get
+      set
+    }
+  }
+  @objc deinit
+}
+extension MobigeoIosSdk.HttpHandlers {
+  public class func shareFilesFromDirectory(_ directoryPath: Swift.String) -> ((MobigeoIosSdk.HttpRequest) -> MobigeoIosSdk.HttpResponse)
+  public class func directory(_ dir: Swift.String) -> ((MobigeoIosSdk.HttpRequest) -> MobigeoIosSdk.HttpResponse)
+  public class func directoryBrowser(_ dir: Swift.String) -> ((MobigeoIosSdk.HttpRequest) -> MobigeoIosSdk.HttpResponse)
+}
+open class HttpParser {
+  public init()
+  open func readHttpRequest(_ socket: MobigeoIosSdk.Socket) throws -> MobigeoIosSdk.HttpRequest
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(MobigeoLocation) open class MobigeoLocation : ObjectiveC.NSObject {
+  open func addEventDelegate(_ locationEventDelegate: MobigeoIosSdk.LocationEventProtocol)
+  open func removeEventDelegate(_ locationEventDelegate: MobigeoIosSdk.LocationEventProtocol)
+  open func start()
+  open func start(_ callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  open func stop()
+  open func stop(_ callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  open func startNaoLogging(_ callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func stopNaoLogging(_ callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func uploadNaoLog(_ callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func recordUserPosition()
+  open func recordUserPosition(_ callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  open func getIsUserOnSite(_ callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func checkPermissions()
+  @objc deinit
+}
+@objc(Mobigeo) @_Concurrency.MainActor(unsafe) open class Mobigeo : UIKit.UIView, Foundation.URLSessionDownloadDelegate {
+  @_Concurrency.MainActor(unsafe) public static let LOG_LEVEL_NONE: Swift.Int
+  @_Concurrency.MainActor(unsafe) public static let LOG_LEVEL_INFO: Swift.Int
+  @_Concurrency.MainActor(unsafe) public static let LOG_LEVEL_DEBUG: Swift.Int
+  @_Concurrency.MainActor(unsafe) public static let LOAD_OPTION_LANG: Swift.String
+  @_Concurrency.MainActor(unsafe) public static let FEATURE_LOCATION: Swift.String
+  @_Concurrency.MainActor(unsafe) public static let FEATURE_LOCATION_GEOGROUP: Swift.String
+  @_Concurrency.MainActor(unsafe) public static let FEATURE_LOCATION_GEOPUSH: Swift.String
+  @_Concurrency.MainActor(unsafe) public static let FEATURE_MAP_ROUTE: Swift.String
+  @_Concurrency.MainActor(unsafe) public static let FEATURE_ASSETS_UPDATE: Swift.String
+  @_Concurrency.MainActor(unsafe) public static let FEATURE_POI_STATES: Swift.String
+  @_Concurrency.MainActor(unsafe) public static let FEATURE_POI_AROUNDME: Swift.String
+  @_Concurrency.MainActor(unsafe) public static let FEATURE_FAVORITES: Swift.String
+  @_Concurrency.MainActor(unsafe) open var map: MobigeoIosSdk.MobigeoMap {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) open var location: MobigeoIosSdk.MobigeoLocation {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) open var favorite: MobigeoIosSdk.MobigeoFavorite {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) open func addEventDelegate(_ delegate: MobigeoIosSdk.EventProtocol)
+  @_Concurrency.MainActor(unsafe) open func removeEventDelegate(_ delegate: MobigeoIosSdk.EventProtocol)
+  @_Concurrency.MainActor(unsafe) open func load(_ key: Swift.String, callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) open func load(_ key: Swift.String, options: [Swift.String : Swift.String]?, callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) open func hasFeature(_ featureName: Swift.String, callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) open func setLogLevel(_ level: Swift.Int)
+  @_Concurrency.MainActor(unsafe) open func setLogLevel(_ logLevel: Swift.String)
+  @_Concurrency.MainActor(unsafe) open func getVersion(_ callback: @escaping (Swift.String) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) open func getProjectVersion(_ callback: @escaping (Swift.String?) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) open func getLang(_ callback: @escaping (Swift.String) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) open func setMobiGeoServer(_ server: Swift.String)
+  @_Concurrency.MainActor(unsafe) open func getMobiGeoServer(_ callback: @escaping (Swift.String) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) open func setNaoCloudServer(_ server: Swift.String)
+  @_Concurrency.MainActor(unsafe) open func getNaoCloudServer(_ callback: @escaping (Swift.String) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) open func getModifications(_ callback: @escaping (Swift.String) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) open func disableLogColors()
+  @_Concurrency.MainActor(unsafe) open func setKeyboardStatus(isOpen: Swift.Bool, size: Swift.Int)
+  @_Concurrency.MainActor(unsafe) open func shouldRequestPermissions(requestPermissions: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) open func setUpdateServer(_ server: Swift.String)
+  @_Concurrency.MainActor(unsafe) open func getUpdateServer(_ callback: @escaping (Swift.String?) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) open func isReady() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) open func whenReady(_ callback: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) open func loadFromUrl(_ mobigeoPath: Foundation.URL)
+  @_Concurrency.MainActor(unsafe) open func loadFromLocalUrl(_ mobigeoPath: Foundation.URL)
+  @_Concurrency.MainActor(unsafe) open func loadFromRemoteUrl(_ mobigeoPath: Foundation.URL)
+  @_Concurrency.MainActor(unsafe) open func loadFromArchive(_ path: Swift.String)
+  @_Concurrency.MainActor(unsafe) @objc public func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didWriteData bytesWritten: Swift.Int64, totalBytesWritten: Swift.Int64, totalBytesExpectedToWrite: Swift.Int64)
+  @_Concurrency.MainActor(unsafe) @objc public func urlSession(_ session: Foundation.URLSession, downloadTask: Foundation.URLSessionDownloadTask, didFinishDownloadingTo location: Foundation.URL)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(MobigeoMapRoute) open class MobigeoMapRoute : ObjectiveC.NSObject {
+  open func addEventDelegate(_ mapRouteEventDelegate: MobigeoIosSdk.MapRouteEventProtocol)
+  open func removeEventDelegate(_ mapRouteEventDelegate: MobigeoIosSdk.MapRouteEventProtocol)
+  open func setPMRStatusPristine(_ val: Swift.Bool)
+  open func setPMRStatus(_ val: Swift.Bool)
+  open func dispatch(_ poi: MobigeoIosSdk.POI, callback: @escaping ([Swift.String : Swift.AnyObject?]?) -> Swift.Void)
+  open func dispatch(poiJson: Swift.String, callback: @escaping ([Swift.String : Swift.AnyObject?]?) -> Swift.Void)
+  open func dispatch(poiJson: Swift.String)
+  open func display(_ startPOI: MobigeoIosSdk.POI, destPOI: MobigeoIosSdk.POI)
+  open func display(_ startPOI: MobigeoIosSdk.POI, destPOI: MobigeoIosSdk.POI, callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func display(startPOIJson: Swift.String, destPOIJson: Swift.String)
+  open func display(startPOIJson: Swift.String, destPOIJson: Swift.String, callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func goTo(_ destPOI: MobigeoIosSdk.POI)
+  open func goTo(destPOIJson: Swift.String)
+  open func goTo(_ destPOI: MobigeoIosSdk.POI, callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func goTo(destPOIJson: Swift.String, callback: @escaping (Swift.Bool) -> Swift.Void)
+  open func hide(_ callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  open func hide()
+  open func goToRecordedPosition(_ callback: @escaping ([Swift.String : Swift.AnyObject?]) -> Swift.Void)
+  open func goToRecordedPosition()
+  @objc deinit
+}
+public enum SocketError : Swift.Error {
+  case socketCreationFailed(Swift.String)
+  case socketSettingReUseAddrFailed(Swift.String)
+  case bindFailed(Swift.String)
+  case listenFailed(Swift.String)
+  case writeFailed(Swift.String)
+  case getPeerNameFailed(Swift.String)
+  case convertingPeerNameFailed
+  case getNameInfoFailed(Swift.String)
+  case acceptFailed(Swift.String)
+  case recvFailed(Swift.String)
+}
+open class Socket : Swift.Hashable, Swift.Equatable {
+  open class func tcpSocketForListen(_ port: Darwin.in_port_t, forceIPv4: Swift.Bool = false, maxPendingConnection: Swift.Int32 = SOMAXCONN) throws -> MobigeoIosSdk.Socket
+  public init(socketFileDescriptor: Swift.Int32)
+  open var hashValue: Swift.Int {
+    get
+  }
+  open func release()
+  open func shutdwn()
+  open func acceptClientSocket() throws -> MobigeoIosSdk.Socket
+  open func writeUTF8(_ string: Swift.String) throws
+  open func writeUInt8(_ data: [Swift.UInt8]) throws
+  open func writeUInt8(_ data: Swift.ArraySlice<Swift.UInt8>) throws
+  open func read() throws -> Swift.UInt8
+  open func readLine() throws -> Swift.String
+  open func peername() throws -> Swift.String
+  open func hash(into hasher: inout Swift.Hasher)
+  @objc deinit
+}
+public func == (socket1: MobigeoIosSdk.Socket, socket2: MobigeoIosSdk.Socket) -> Swift.Bool
+@_hasMissingDesignatedInitializers open class HttpRequest {
+  open var path: Swift.String
+  open var queryParams: [(Swift.String, Swift.String)]
+  open var method: Swift.String
+  open var headers: [Swift.String : Swift.String]
+  open var body: [Swift.UInt8]
+  open var address: Swift.String?
+  open var params: [Swift.String : Swift.String]
+  open func parseUrlencodedForm() -> [(Swift.String, Swift.String)]
+  public struct MultiPart {
+    public let headers: [Swift.String : Swift.String]
+    public let body: [Swift.UInt8]
+    public var name: Swift.String? {
+      get
+    }
+    public var fileName: Swift.String? {
+      get
+    }
+  }
+  open func parseMultiPartFormData() -> [MobigeoIosSdk.HttpRequest.MultiPart]
+  @objc deinit
+}
+extension Swift.String {
+  public static func toBase64(_ data: [Swift.UInt8]) -> Swift.String
+}
+extension Swift.String {
+  public func SHA1() -> Swift.String
+  public func SHA1() -> [Swift.UInt8]
+}
+extension Swift.String {
+  public func split(_ separator: Swift.Character) -> [Swift.String]
+  public func split(_ maxSplit: Swift.Int = Int.max, separator: Swift.Character) -> [Swift.String]
+  public func replace(_ old: Swift.Character, _ new: Swift.Character) -> Swift.String
+  public func unquote() -> Swift.String
+  public func trim() -> Swift.String
+  public static func fromUInt8(_ array: [Swift.UInt8]) -> Swift.String
+}
+extension Swift.Unicode.Scalar {
+  public func asWhitespace() -> Swift.UInt8?
+  public func asAlpha() -> Swift.UInt8?
+}
+@_hasMissingDesignatedInitializers open class HttpServerIO {
+  open func start(_ listenPort: Darwin.in_port_t = 8080, forceIPv4: Swift.Bool = false) throws
+  open func stop()
+  open func dispatch(_ method: Swift.String, path: Swift.String) -> ([Swift.String : Swift.String], (MobigeoIosSdk.HttpRequest) -> MobigeoIosSdk.HttpResponse)
+  @objc deinit
+}
+@objc public protocol EventProtocol {
+  @objc func onUpdatedEvent()
+  @objc func onErrorEvent(_ error: Swift.String)
+}
+@objc public protocol MapEventProtocol {
+  @objc func onReadyEvent(_ settings: Swift.AnyObject)
+  @objc func onErrorEvent(_ error: Swift.String)
+  @objc func onTapButtonHomeEvent()
+  @objc func onTapButtonPositionEvent()
+  @objc func onTapButtonBackEvent()
+  @objc func onTapButtonItineraryEvent()
+  @objc func onTapButtonAroundMeEvent()
+  @objc func onTapButtonSearchEvent()
+  @objc func onTapButtonServicesEvent()
+}
+@objc public protocol MapPOIEventProtocol {
+  @objc func onTapEvent(_ POIs: Swift.AnyObject)
+}
+@objc public protocol MapIconEventProtocol {
+  @objc func onTapEvent(_ Icons: Swift.AnyObject)
+}
+@objc public protocol MapRouteEventProtocol {
+  @objc func onSuccessEvent()
+  @objc func onErrorEvent(_ error: Swift.String)
+  @objc func onShowPMRStatusPristineModalEvent(_ poiData: Swift.AnyObject)
+  @objc func onDestinationSelectedEvent(_ poiData: Swift.AnyObject)
+}
+@objc public protocol LocationEventProtocol {
+  @objc func onStartedEvent()
+  @objc func onStoppedEvent()
+  @objc func onHasPositionEvent(_ position: Swift.AnyObject)
+  @objc func onEnterSiteEvent()
+  @objc func onExitSiteEvent()
+  @objc func onErrorEvent(_ error: Swift.String)
+  @objc func onRequestLocationCapabilitiesEvent()
+}
+@objc public protocol FavoriteEventProtocol {
+  @objc func onAddedEvent(_ data: Swift.AnyObject)
+  @objc func onShareEvent(_ data: Swift.AnyObject)
+  @objc func onRemovedEvent(_ data: Swift.AnyObject)
+}
+@objc open class POI : ObjectiveC.NSObject, Swift.Codable {
+  public init(id: Swift.String, type: Swift.String)
+  public init(id: Swift.String, placeId: Swift.Int, type: Swift.String)
+  public init(dictionary: Foundation.NSDictionary)
+  @objc deinit
+  open func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@objc open class FAVORITE : ObjectiveC.NSObject, Swift.Codable {
+  public init(dictionary: Foundation.NSDictionary)
+  @objc deinit
+  open func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@objc open class ICON : ObjectiveC.NSObject, Swift.Codable {
+  public init(dictionary: Foundation.NSDictionary)
+  @objc deinit
+  open func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+extension MobigeoIosSdk.SerializationError : Swift.Equatable {}
+extension MobigeoIosSdk.SerializationError : Swift.Hashable {}
+extension MobigeoIosSdk.HttpHandlers.WebSocketSession.OpCode : Swift.Equatable {}
+extension MobigeoIosSdk.HttpHandlers.WebSocketSession.OpCode : Swift.Hashable {}

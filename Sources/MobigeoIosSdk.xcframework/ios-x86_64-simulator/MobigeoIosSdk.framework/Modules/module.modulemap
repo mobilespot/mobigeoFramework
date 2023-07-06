@@ -1,0 +1,11 @@
+framework module MobigeoIosSdk {
+  umbrella header "MobigeoIosSdk.h"
+
+  export *
+  module * { export * }
+}
+
+module MobigeoIosSdk.Swift {
+  header "MobigeoIosSdk-Swift.h"
+  requires objc
+}

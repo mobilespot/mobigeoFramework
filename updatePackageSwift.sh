@@ -19,10 +19,14 @@ let package = Package(
             targets: ["$1"]),
     ],
     targets: [
-        .binaryTarget(
+        /*.binaryTarget(
             name: "$1",
             url: "$2",
             checksum: "$3"
+        ), */
+        .binaryTarget(
+                    name: "$1",
+                    path: "./Sources/$1.xcframework"
         ), 
     ]
 )

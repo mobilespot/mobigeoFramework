@@ -10,11 +10,11 @@
 		</data>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/Pods_MobigeoIosSdk</key>
 		<data>
-		VSAwTruRCOx+HLLoPwMqn+vR7iw=
+		4zM+eEL6hgiusp1dA+MQIwFm2VE=
 		</data>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeDirectory</key>
 		<data>
-		e6DBYK+rJFyBPFJN9kp48W6RxlM=
+		VU+L357TGYEEqYlr/zokB/D0lSg=
 		</data>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeRequirements</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeRequirements-1</key>
 		<data>
-		6hw7JJHCPWkoXtDqqahu6BaTgPo=
+		oULfSyW0m2YyMRQplxbBpEPViwo=
 		</data>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeSignature</key>
 		<data>
-		1VaSAriwQ4TDuvaigceuG3/zixo=
+		ZgMTZFLgre7fX0FMCWdLCK2kFWc=
 		</data>
 		<key>Headers/DBNAOAlertRule.h</key>
 		<data>
@@ -162,7 +162,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		8vwI54UmUOiMxMKKBxneQIajp5Q=
+		Ioq+WK4kT8Yinms2dkWwSh3IES0=
 		</data>
 		<key>Modules/MobigeoIosSdk.swiftmodule/arm64e-apple-ios.abi.json</key>
 		<data>
@@ -210,14 +210,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Bf3r24BTpL72USGnOTFY/W/26GdoXLAry9lLq2D++1I=
+			ahNnKAVmeL9Nc8yyd1422jtxiU7DkqvoEKRTaDetj5s=
 			</data>
 		</dict>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeDirectory</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mT2mN1hpJRMzbH3rB52uX8HZ28Aj4ydCipaACH85rgM=
+			JT3PP07vk/KrKKH6OxKvOhcQdqn3ICHaGSXPFcXvdo4=
 			</data>
 		</dict>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeRequirements</key>
@@ -231,7 +231,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qwv1oZ/QzeuZfp5Lgdhqkp2xr8BHjdMCYF0f7g1k1Gk=
+			qjZhWlG5M0TjfNY035q+NFgMLwo3lD7Sl9NNuaSynfs=
 			</data>
 		</dict>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeResources</key>
@@ -245,7 +245,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SqAWpF4SylaFeA89PT9TmYJCC1zK0lRAFob9s7oPAF0=
+			tV/RLwhAgW3AuC7wKQSepntepZ28ZxxT/Bp5r1Y6Erk=
 			</data>
 		</dict>
 		<key>Headers/DBNAOAlertRule.h</key>

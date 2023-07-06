@@ -10,11 +10,11 @@
 		</data>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/Pods_MobigeoIosSdk</key>
 		<data>
-		XXvEp85HOiruzATc1Wg2jCPvjeo=
+		wXQ6qJ5mHXOTEyRnT3Ix+AXMf14=
 		</data>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeDirectory</key>
 		<data>
-		vkp3HcQ5F7jO06762M+7H7WnnZQ=
+		vmCMB3geXdx8tGFb6BSUTbsqxvg=
 		</data>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeRequirements</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeRequirements-1</key>
 		<data>
-		Zdmkr2uik9tX+viMAlzq88Wjnbc=
+		z9ebGNJizFTubFIUfPJodIsShMQ=
 		</data>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -162,7 +162,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		r6T2yPfts3hOGkuDPzrQCMpuzIs=
+		pmVnaODNWx2O3l0d3hNAmA25zQ8=
 		</data>
 		<key>Modules/MobigeoIosSdk.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -210,14 +210,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VMfvGSeQ9RIISKLTfcX81mCRCfhi1Y3lJZnoKxvzx5w=
+			K4gWXT3+BbUT6qvPsFzBqV+1nhaJcN3wGPqMSwLjFc4=
 			</data>
 		</dict>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeDirectory</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jAwJABmeLzrcg8ycC26Wbq8+zs8i7e/vWZUrPmMLsNs=
+			HhfT0qOSey+AB8zgzsLDsScYQMG/CLM/jNeBHp65AUQ=
 			</data>
 		</dict>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeRequirements</key>
@@ -231,7 +231,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FySwtCHlnH/B+gIsXhbL7M3JSaM9J4yZwBxZz5Saz/w=
+			56dmeR5gO/NtlsDWZpeodpMOIqn66E/TDgrBFu5rt+4=
 			</data>
 		</dict>
 		<key>Frameworks/Pods_MobigeoIosSdk.framework/_CodeSignature/CodeResources</key>

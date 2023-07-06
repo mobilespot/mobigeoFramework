@@ -1,7 +1,7 @@
  
   Pod::Spec.new do |spec|
     spec.name         = "MobigeoIosSdk"
-    spec.version      = "0.10.8"
+    spec.version      = "0.10.10"
     spec.summary      = "Mobigeo sdk"
     spec.description  = "mobigeo sdk"
     spec.homepage     = "main"
@@ -22,7 +22,7 @@
     spec.author             = { "mbenkhedher" => "mbenkhedher@leni.fr" }
     spec.platform     = :ios, "12.4"
     spec.ios.deployment_target = "12.4"
-    spec.source       = { :git => "git@github.com:mobilespot/mobigeoFramework.git", :branch => "main", :tag => "0.10.8" }
+    spec.source       = { :git => "git@github.com:mobilespot/mobigeoFramework.git", :branch => "main", :tag => "0.10.10" }
     spec.swift_versions = "5"
     #spec.source_files  = "*"
     #spec.resources = "*"

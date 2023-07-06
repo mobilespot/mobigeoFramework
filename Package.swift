@@ -1,3 +1,4 @@
+ 
 // swift-tools-version: 5.8
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
@@ -14,16 +15,16 @@ let package = Package(
             name: "MobigeoIosSdk",
             targets: ["MobigeoIosSdk"]),
     ],
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
-    ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
+        /*.binaryTarget(
+            name: "MobigeoIosSdk",
+            url: "https://github.com/mobilespot/mobigeoFramework/raw/0.10.10/MobigeoIosSdk.xcframework.zip",
+            checksum: "3dad4e2c902a05a71fffc2af8ed082c3f2da40279621b8dae7fa98bf8a9279ab"
+        ), */
         .binaryTarget(
                     name: "MobigeoIosSdk",
                     path: "./Sources/MobigeoIosSdk.xcframework"
         ), 
     ]
 )
+

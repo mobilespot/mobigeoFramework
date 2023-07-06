@@ -18,8 +18,8 @@ let package = Package(
     targets: [
         /*.binaryTarget(
             name: "MobigeoIosSdk",
-            url: "https://github.com/mobilespot/mobigeoFramework/raw/0.10.10/MobigeoIosSdk.xcframework.zip",
-            checksum: "3dad4e2c902a05a71fffc2af8ed082c3f2da40279621b8dae7fa98bf8a9279ab"
+            url: "https://github.com/mobilespot/mobigeoFramework/raw/0.10.11/MobigeoIosSdk.xcframework.zip",
+            checksum: "9f6bdd150d852658a5c1d4fd08dc5e399e9c6f4d597bc8c7e0c7dd2e6909c554"
         ), */
         .binaryTarget(
                     name: "MobigeoIosSdk",
